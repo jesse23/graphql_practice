@@ -1,0 +1,52 @@
+* Github Example
+** Test URL
+  https://developer.github.com/v4/explorer/
+** Query example
+# We'll get you started with a simple query showing your username!
+query { 
+  viewer {
+    id
+    name
+    company
+  }
+}
+** Request
+{
+  query: "# Type queries into this side of the screen, and you will ↵# see intelligent typeaheads aware of the current GraphQL type schema, ↵# live syntax, and validation errors highlighted within the text.↵↵# We'll get you started with a simple query showing your username!↵query { ↵  viewer {↵    id↵    name↵    company↵  }↵}"
+  variables: {}
+}
+** Response
+{
+  "data": 
+  {
+    "viewer":
+    {
+      "id":"MDQ6VXNlcjY0MzkxMg==",
+      "name":"Wenjia Peng",
+      "company":""
+    }
+  }
+}
+* Pros
+** Demand Driven
+** Adaptive with frequent UI change
+** One quest, no request chain ( maynot be true when we talk about internal network )
+** API for multi-front end
+** Schema check
+* Cons
+** Performance 
+   N+1 issue
+** Cache Strategy Redesign
+** Security
+   DDos Attack
+* Practice
+git clone https://github.com/namelos/react-minimal-boilerplate
+cd react-minimal-boilerplate 
+npm install 
+npm start
+
+npm install graphql graphql-tools graphql-server-express --save 
+mkdir server 
+vim server/schema.js
+
+npm install apollo-client apollo-boost react-apollo graphql-tag --save
