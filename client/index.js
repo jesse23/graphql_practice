@@ -34,7 +34,7 @@ const Todos = graphql(TodosQuery)(TodosComponent)
 
 
 // Add component for mutation test
-const AddTodoComponent = ({ mutate }) => { 
+const AddTodoComponent = ({ mutate, data }) => { 
   let input 
   const handleSubmit = e => { 
     e.preventDefault() 
