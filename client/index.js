@@ -1,6 +1,6 @@
 import React from 'react'
-import { render } from 'react-dom'
 import Apollo from 'apollo-boost'
+import { render } from 'react-dom'
 import { ApolloProvider, graphql } from 'react-apollo'
 import gql from 'graphql-tag'
 
@@ -43,7 +43,8 @@ const AddTodoComponent = ({ mutate }) => {
   } 
   return <form onSubmit={ handleSubmit }> 
    Enter todo here: <input type="text" ref={ el => input = el }/> 
-  </form>} 
+  </form>
+} 
 
 const AddTodoMutation = gql` 
   mutation addTodo($text: String!){ 
@@ -56,7 +57,7 @@ const AddTodoMutation = gql`
 const AddTodo = graphql(AddTodoMutation)(AddTodoComponent)
 
 render(<ApolloProvider client={client}> 
-        <div> 
+         <div> 
            <Todos /> 
          </div> 
       </ApolloProvider>, document.querySelector('#app'))

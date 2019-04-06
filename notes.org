@@ -11,6 +11,258 @@ query {
     company
   }
 }
+*** Complex Query
+**** Input
+{
+   viewer {
+     followers(first: 10) {
+       edges {
+         node {
+           name
+           repositories(first: 5) {
+             edges {
+               node {
+                 name
+               }
+             }
+           }
+         }
+       }
+     }
+   }
+}
+**** Output
+{
+  "data": {
+    "viewer": {
+      "followers": {
+        "edges": [
+          {
+            "node": {
+              "name": null,
+              "repositories": {
+                "edges": []
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "Denny Chitwood",
+              "repositories": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "7hillsleague.org"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "milfordkickers.org"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "SmartThingsPublic"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "name": null,
+              "repositories": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "DatStr02"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "DatStr03"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "DatStr04"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "DatStr06"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "ProgLangProj"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "Shaishav Shah",
+              "repositories": {
+                "edges": []
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "Santhosh Kumar Mittapally",
+              "repositories": {
+                "edges": []
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "Brad Friebe",
+              "repositories": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "hackeastern"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "hackeastern"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "ChemStock"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "GlobeOilDiscordBot"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "Nelson",
+              "repositories": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "gofair"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "whistle"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "ps-tree"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "env"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "Enhance-PHP"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "Li Peng",
+              "repositories": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "MyTodo"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "DiskSpaceAnalyze"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "Chart.js"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "SampleOfRelection"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "LearnPython"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "node": {
+              "name": null,
+              "repositories": {
+                "edges": []
+              }
+            }
+          },
+          {
+            "node": {
+              "name": "Michal Paszkiewicz",
+              "repositories": {
+                "edges": [
+                  {
+                    "node": {
+                      "name": "natural-selection"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "Cryptosaurus"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "MusicSite"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "MichalPaszkiewicz.github.io"
+                    }
+                  },
+                  {
+                    "node": {
+                      "name": "platformer"
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
 *** Without mention query
   { 
     todos { 
