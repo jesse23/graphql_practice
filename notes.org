@@ -2,6 +2,7 @@
 ** Test URL
   https://developer.github.com/v4/explorer/
 ** Query example
+*** Simple Query
 # We'll get you started with a simple query showing your username!
 query { 
   viewer {
@@ -10,12 +11,51 @@ query {
     company
   }
 }
+*** Without mention query
+  { 
+    todos { 
+      text
+   } 
+  } 
+*** Fragment
+  query { 
+    todos { 
+      ...Todo
+      ...Todo1
+   } 
+  } 
+
+  fragment Todo on Todo { 
+    id  
+  } 
+  
+  fragment Todo1 on Todo { 
+    text
+  }
+*** Mutation
+mutation {
+   addTodo(text: "Finish my first GraphQL app") {
+     id
+  }
+}
+*** Metadata Query
+{
+   __type(name: "Todo") {
+     description
+   }
+   __schema {
+     types {
+       name
+     }
+   }
+}
 ** Request
 {
   query: "# Type queries into this side of the screen, and you will ↵# see intelligent typeaheads aware of the current GraphQL type schema, ↵# live syntax, and validation errors highlighted within the text.↵↵# We'll get you started with a simple query showing your username!↵query { ↵  viewer {↵    id↵    name↵    company↵  }↵}"
   variables: {}
 }
 ** Response
+*** Success
 {
   "data": 
   {
@@ -27,10 +67,29 @@ query {
     }
   }
 }
+*** Failure
+ {
+  "errors": [
+    {
+      "message": "Syntax Error: Expected Name, found }",
+      "locations": [
+        {
+          "line": 3,
+          "column": 4
+        }
+      ]
+    }
+  ]
+}   
+* Reference
+** GraphQL Data Loader
+https://github.com/graphql/dataloader
+** GraphQL to SQL
+ https://github.com/stems/join-monster  
 * Pros
 ** Demand Driven
-** Adaptive with frequent UI change
 ** One quest, no request chain ( maynot be true when we talk about internal network )
+** Adaptive with frequent UI change
 ** API for multi-front end
 ** Schema check
 * Cons
@@ -50,3 +109,32 @@ mkdir server
 vim server/schema.js
 
 npm install apollo-client apollo-boost react-apollo graphql-tag --save
+* Scrathpad
+- It is just a client side query language like SQL
+- What it we write our own and translate it to Closure Rule + Porperty Set?
+- Query what client need doesn't mean client is hands free. If data masaging is needed it is still needed. We only resolve the necessity of the data.
+- We have JSON Schema in the system already...what is that??
+* Rough Design
+** API
+   getData
+   setData
+** Input
+   {
+     queryString: <string>
+     options: 
+     [
+       {
+         name:  <string>
+         value: <string>
+       }
+     ]
+   }
+** Output
+   {
+     output: <JSON string>
+     status: {
+       code: <int>
+       msg:  <string>
+     }
+   }
+     

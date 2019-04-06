@@ -1,8 +1,8 @@
 const path = require('path')
 const webpack = require('webpack')
 const express = require('express')
-const schema = require('./server/schema')
 const config = require('./webpack.config')
+const schema = require('./server/schema')
 
 const app = express()
 const compiler = webpack(config)
